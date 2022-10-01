@@ -3,7 +3,7 @@ CFLAGS =     -Wall -Wextra -Werror
 RM =         rm -f
 
 SRCSDIR =     srcs
-SRCSF =
+SRCSF =        ft_string_checks.c ft_strput_fd.c
 SRCS =         ${foreach file, ${SRCSF}, ${addprefix} ${SRCSDIR}/${file}}
 OBJS =         ${SRCS:.c=.o}
 DEPS =         includes/
@@ -25,7 +25,7 @@ ${TARGET}: ${OBJS}
 	ar rcs ${TARGET} ${OBJS}
 
 tests: all ${TOBJS}
-	${CC} ${CFLAGS} -o all_tests ${TOBJS} ${OBJS} -I${DEPS} -I${TDEPS}
+	${CC} ${CFLAGS} -o all_tests ${TOBJS} -L. -lft -I${DEPS} -I${TDEPS}
 
 clean:
 	${RM} ${OBJS} ${TOBJS} all_tests

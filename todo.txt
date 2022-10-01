@@ -3,11 +3,11 @@ Mark with # when implementation done
 Mark wirh @ when testing done
 
 // Libc functions
-int     isalnum(int c);
-int     isalpha(int c);
-int     isdigit(int c);
-int     isprint(int c);
-int     isascii(int c);
+#int     isalnum(int c);
+#int     isalpha(int c);
+#int     isdigit(int c);
+#int     isprint(int c);
+#int     isascii(int c);
 size_t  strlen(const char *s);
 size_t  strlcpy(char *dst, const char *src, size_t size);
 size_t  strlcat(char *dst, const char *src, size_t size);
@@ -31,7 +31,7 @@ char    **ft_split(char const *s, char c);
 char    *ft_itoa(int n);
 char    *ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void    ft_striteri(char *s, void (*f)(unsigned int, char*));
-void    ft_putchar_fd(char c, int fd);
-void    ft_putstr_fd(char *s, int fd);
-void    ft_putendl_fd(char *s, int fd);
-void    ft_putnbr_fd(int n, int fd);
+#void    ft_putchar_fd(char c, int fd);
+#void    ft_putstr_fd(char *s, int fd);
+#void    ft_putendl_fd(char *s, int fd);
+#void    ft_putnbr_fd(int n, int fd);

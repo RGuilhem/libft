@@ -34,11 +34,195 @@ void    ft_putstr_fd(char *s, int fd);
 void    ft_putendl_fd(char *s, int fd);
 void    ft_putnbr_fd(int n, int fd);
 */
+#include "includes/ft_random_tests.h"
+#include "../includes/libft.h"
+#include <stdbool.h>
+#include <time.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <ctype.h>
 
-int main(int argc, char *argv[])
+const int TEST_NUM = 10;
+
+bool    test_isalnum()
+{
+    int i;
+    int input;
+    int expected;
+    int actual;
+    bool    passed;
+
+    i = 0;
+    passed = true;
+    printf("###### %s ######\n", __func__);
+    while (i < TEST_NUM)
+    {
+        input = rand() % 128;
+        expected = isalnum(input);
+        actual = ft_isalnum(input);
+
+        if (expected == actual)   //function test here
+            printf("OKAY\n");
+        else
+        {
+            //test failed
+            printf("Test failed:\n");
+            printf("   Input   > %d\n", input);
+            printf("   Expected> %d\n", expected);
+            printf("   Actual  > %d\n", actual);
+            passed = false;
+        }
+        i++;
+    }
+    return passed;
+}
+
+bool    test_isalpha()
+{
+    int i;
+    int input;
+    int expected;
+    int actual;
+    bool    passed;
+
+    i = 0;
+    passed = true;
+    printf("###### %s ######\n", __func__);
+    while (i < TEST_NUM)
+    {
+        input = rand() % 128;
+        expected = isalpha(input);
+        actual = ft_isalpha(input);
+
+        if (expected == actual)   //function test here
+            printf("OKAY\n");
+        else
+        {
+            //test failed
+            printf("Test failed:\n");
+            printf("   Input   > %d\n", input);
+            printf("   Expected> %d\n", expected);
+            printf("   Actual  > %d\n", actual);
+            passed = false;
+        }
+        i++;
+    }
+    return passed;
+}
+
+bool    test_isdigit()
+{
+    int i;
+    int input;
+    int expected;
+    int actual;
+    bool    passed;
+
+    i = 0;
+    passed = true;
+    printf("###### %s ######\n", __func__);
+    while (i < TEST_NUM)
+    {
+        input = rand() % 128;
+        expected = isdigit(input);
+        actual = ft_isdigit(input);
+
+        if (expected == actual)   //function test here
+            printf("OKAY\n");
+        else
+        {
+            //test failed
+            printf("Test failed:\n");
+            printf("   Input   > %d\n", input);
+            printf("   Expected> %d\n", expected);
+            printf("   Actual  > %d\n", actual);
+            passed = false;
+        }
+        i++;
+    }
+    return passed;
+}
+
+bool    test_isprint()
+{
+    int i;
+    int input;
+    int expected;
+    int actual;
+    bool    passed;
+
+    i = 0;
+    passed = true;
+    printf("###### %s ######\n", __func__);
+    while (i < TEST_NUM)
+    {
+        input = rand() % 128;
+        expected = isprint(input);
+        actual = ft_isprint(input);
+
+        if (expected == actual)   //function test here
+            printf("OKAY\n");
+        else
+        {
+            //test failed
+            printf("Test failed:\n");
+            printf("   Input   > %d\n", input);
+            printf("   Expected> %d\n", expected);
+            printf("   Actual  > %d\n", actual);
+            passed = false;
+        }
+        i++;
+    }
+    return passed;
+}
+
+bool    test_isascii()
+{
+    int i;
+    int input;
+    int expected;
+    int actual;
+    bool    passed;
+
+    i = 0;
+    passed = true;
+    printf("###### %s ######\n", __func__);
+    while (i < TEST_NUM)
+    {
+        input = rand() % 128;
+        expected = isascii(input);
+        actual = ft_isascii(input);
+
+        if (expected == actual)   //function test here
+            printf("OKAY\n");
+        else
+        {
+            //test failed
+            printf("Test failed:\n");
+            printf("   Input   > %d\n", input);
+            printf("   Expected> %d\n", expected);
+            printf("   Actual  > %d\n", actual);
+            passed = false;
+        }
+        i++;
+    }
+    return passed;
+}
+
+int  main(int argc, char *argv[])
 {
     (void) argc;
     (void) argv;
+
+    srand(time(0));
+    //Weird retrun value for libc isprint???? 16384
+    /*
+    test_isalnum();
+    test_isalpha();
+    test_isdigit();
+    test_isprint();
+    test_isascii();
+    */
 
     return 0;
 }
