@@ -2,36 +2,40 @@ CC =         gcc
 CFLAGS =     -Wall -Wextra -Werror
 RM =         rm -f
 
-SRCSDIR =     srcs
-SRCSF =        ft_string_checks.c ft_strput_fd.c
-SRCS =         ${foreach file, ${SRCSF}, ${addprefix} ${SRCSDIR}/${file}}
+SRCS =        ${addprefix srcs/, ft_isalpha.c \
+			  ft_isdigit.c \
+			  ft_isalnum.c \
+			  ft_isprint.c \
+			  ft_isascii.c \
+			  ft_putchar_fd.c \
+			  ft_putstr_fd.c \
+			  ft_putendl_fd.c \
+			  ft_putnbr_fd.c \
+			  ft_strlen.c \
+			  ft_strlcpy.c \
+			  ft_strlcat.c \
+			  ft_toupper.c \
+			  ft_tolower.c \
+			  ft_substr.c \
+			  ft_strjoin.c \
+			  ft_strdup.c}
 OBJS =         ${SRCS:.c=.o}
-DEPS =         includes/
-TESTSDIR =     tests
-TESTSF =       ft_all_tests.c ft_random_tests.c
-TESTS =         ${foreach file, ${TESTSF}, ${addprefix} ${TESTSDIR}/${file}}
-TOBJS =         ${TESTS:.c=.o}
-TDEPS =         tests/includes/
 
-
-TARGET =     libft.a
+NAME =     libft.a
 
 .c.o:
-	${CC} ${CFLAGS} -c $< -o ${<:.c=.o} -I${DEPS}
+	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
-all: ${TARGET}
+all: ${NAME}
 
-${TARGET}: ${OBJS}
-	ar rcs ${TARGET} ${OBJS}
-
-tests: all ${TOBJS}
-	${CC} ${CFLAGS} -o all_tests ${TOBJS} -L. -lft -I${DEPS} -I${TDEPS}
+${NAME}: ${OBJS}
+	ar rcs ${NAME} ${OBJS}
 
 clean:
-	${RM} ${OBJS} ${TOBJS} all_tests
+	${RM} ${OBJS}
 
 fclean: clean
-	${RM} ${TARGET}
+	${RM} ${NAME}
 
 re: fclean all
 

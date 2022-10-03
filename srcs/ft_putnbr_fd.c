@@ -1,22 +1,4 @@
-#include <unistd.h>
-#include "../includes/libft.h"
-
-void    ft_putchar_fd(char c, int fd)
-{
-    write(fd, &c, 1);
-}
-
-void    ft_putstr_fd(char *s, int fd)
-{
-    while (*s)
-        write(fd, s++, 1);
-}
-
-void    ft_putendl_fd(char *s, int fd)
-{
-    ft_putstr_fd(s, fd);
-    write(fd, "\n", 1);
-}
+#include "../libft.h"
 
 static void ft_putnbr_fd_rec(long n, int fd)
 {

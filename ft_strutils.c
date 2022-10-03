@@ -1,8 +1,8 @@
-#include "../includes/libft.h"
+#include "libft.h"
 
 size_t  ft_strlen(const char *s)
 {
-    int size;
+    size_t size;
 
     size = 0;
     while (s[size])
@@ -12,7 +12,7 @@ size_t  ft_strlen(const char *s)
 
 size_t  ft_strlcpy(char *dst, const char *src, size_t size)
 {
-    int count;
+    size_t count;
 
     count = 0;
     while (count < size && src[count])
@@ -27,7 +27,7 @@ size_t  ft_strlcpy(char *dst, const char *src, size_t size)
 
 size_t  ft_strlcat(char *dst, const char *src, size_t size)
 {
-    int count;
+    size_t count;
     int i;
 
     count = 0;
@@ -41,7 +41,7 @@ size_t  ft_strlcat(char *dst, const char *src, size_t size)
     }
     //TODO terminate the string correctly
     return (ft_strlen(dst) + ft_strlen(src));
-    }
+}
 
 int ft_toupper(int c)
 {
