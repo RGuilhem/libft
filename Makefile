@@ -34,7 +34,9 @@ SRCS =        ft_isalpha.c \
 			  ft_strmapi.c \
 			  ft_itoa.c \
 			  ft_strtrim.c \
-			  ft_calloc.c
+			  ft_calloc.c \
+			  ft_split.c
+
 OBJS =        ${SRCS:.c=.o}
 SRCS_BONUS =  ${addsuffix _bonus.c, ft_lstnew \
 			  ft_lstadd_front \
